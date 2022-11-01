@@ -5,11 +5,43 @@ basic.forever(function () {
     DigitalPin.P1,
     PingUnit.Centimeters
     )
-    if (distance < 10) {
-        if (distance < 8) {
+    if (distance < 2) {
+        basic.showLeds(`
+            # # # # #
+            . . . . .
+            . . . . .
+            . . . . .
+            . . . . .
+            `)
+    } else {
+        if (distance < 4) {
+            basic.showLeds(`
+                # # # # #
+                # # # # #
+                . . . . .
+                . . . . .
+                . . . . .
+                `)
+        } else {
             if (distance < 6) {
-                if (distance < 4) {
-                    if (distance < 2) {
+                basic.showLeds(`
+                    # # # # #
+                    # # # # #
+                    # # # # #
+                    . . . . .
+                    . . . . .
+                    `)
+            } else {
+                if (distance < 8) {
+                    basic.showLeds(`
+                        # # # # #
+                        # # # # #
+                        # # # # #
+                        # # # # #
+                        . . . . .
+                        `)
+                } else {
+                    if (distance < 10) {
                         basic.showLeds(`
                             # # # # #
                             # # # # #
@@ -18,40 +50,8 @@ basic.forever(function () {
                             # # # # #
                             `)
                     }
-                } else {
-                    basic.showLeds(`
-                        # # # # #
-                        # # # # #
-                        # # # # #
-                        # # # # #
-                        . . . . .
-                        `)
                 }
-            } else {
-                basic.showLeds(`
-                    # # # # #
-                    # # # # #
-                    # # # # #
-                    . . . . .
-                    . . . . .
-                    `)
             }
-        } else {
-            basic.showLeds(`
-                # # # # #
-                # # # # #
-                . . . . .
-                . . . . .
-                . . . . .
-                `)
         }
-    } else {
-        basic.showLeds(`
-            # # # # #
-            . . . . .
-            . . . . .
-            . . . . .
-            . . . . .
-            `)
     }
 })
